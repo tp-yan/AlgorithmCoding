@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class BubbleSort {
     /**
      * 冒泡排序O(N^2)
+     * 关键：只关心相邻元素的大小，若满足条件则交换，否则移到下个元素继续相邻比较
      * 注：冒泡排序就算是前面的数组已经排序，但还是都要遍历一下数组，故冒泡排序没有最好最差情况，或者说它们都一样
      */
     public static void bubbleSort(int[] arr) {

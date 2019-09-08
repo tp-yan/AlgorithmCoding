@@ -42,6 +42,7 @@ public class MaxSubMatrixSum {
         startTime = System.currentTimeMillis();
         // 更高效的实现：解决重复计算问题，记住上个矩阵的列求和得到的行数组，比如 上一个矩阵是1,2行，计算了各列累加和得到 数组 v，
         // 现在新矩阵是 1,2,3行，求该矩阵的各列累加和，只需要 v' = v + 第3行即可
+        // 关键：矩阵累加
         max = Integer.MIN_VALUE;
         int cur = 0;
         int[] s = null; // 上个矩阵的咧累加和数组

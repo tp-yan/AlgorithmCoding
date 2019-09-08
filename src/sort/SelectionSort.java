@@ -5,7 +5,7 @@ import dft.MyUtils;
 public class SelectionSort {
     /**
      * 选择排序：依次从数组中选择最大元素，放在第0，1,2,..位置
-     *
+     * 关键：找到剩余数组最大元素与当前被占位置元素交换
      * @param arr
      */
     public static void selectionSort(int[] arr) {
