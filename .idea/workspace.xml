@@ -4,6 +4,7 @@
     <list default="true" id="74cceb37-279a-4729-95a7-df8b8b3b6a9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dft/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/MyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dft/ReverseSubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/ReverseSubArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sort/BubbleSort.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BubbleSort">
+  <component name="RunManager" selected="Application.MyUtils">
     <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sort.BubbleSort" />
       <module name="AlgorithmCoding" />
@@ -56,13 +57,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MaxLSubMaxR" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dft.MaxLSubMaxR" />
-      <module name="AlgorithmCoding" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,6 +71,19 @@
     <configuration name="MaxSubMatrixSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dft.MaxSubMatrixSum" />
       <module name="AlgorithmCoding" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dft.MyUtils" />
+      <module name="AlgorithmCoding" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dft.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -96,11 +103,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MyUtils" />
         <item itemvalue="Application.BubbleSort" />
         <item itemvalue="Application.ReverseSubArray" />
         <item itemvalue="Application.MaxSubMatrixSum" />
         <item itemvalue="Application.MaxSubArraySum" />
-        <item itemvalue="Application.MaxLSubMaxR" />
       </list>
     </recent_temporary>
   </component>

@@ -4,6 +4,7 @@ public class MyUtils {
 
     /**
      * 深层复制一个数组副本
+     *
      * @param source 原数组
      * @return 数组副本
      */
@@ -21,10 +22,10 @@ public class MyUtils {
     /**
      * 生成随机正数数组
      */
-    public static int[] generatePosRandomArray(int len,int max){
+    public static int[] generatePosRandomArray(int len, int max) {
         int[] arr = new int[len];
         for (int i = 0; i < len; i++) {
-            arr[i] = (int)(Math.random()*(max+1));
+            arr[i] = (int) (Math.random() * (max + 1));
         }
         return arr;
     }
@@ -56,23 +57,46 @@ public class MyUtils {
     }
 
     /**
-     * 交换数组arr第i,j上的元素
+     * 交换数组arr第i,j上的元素，使用中一个间变量
+     *
+     * @param arr
+     * @param i
+     * @param j
      */
-    public static void swap(int[] arr,int i,int j){
+    public static void swap_i_j(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
     }
 
     /**
+     * 交换数组arr第i,j上的元素，不使用中间变量
+     * 亲测有效！
+     * @param arr
+     * @param i
+     * @param j
+     */
+    public static void swap_i_j_direct(int[] arr, int i, int j) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
+
+    /**
      * 将一个数组逆序
+     *
      * @param arr
      */
-    public static void reverseArray(int[] arr){
+    public static void reverseArray(int[] arr) {
         int len = arr.length;
-        for (int i = 0; i < len/2; i++) {
-            swap(arr,i,len-i-1);    // 交换数组前后对称元素
+        for (int i = 0; i < len / 2; i++) {
+            swap_i_j(arr, i, len - i - 1);    // 交换数组前后对称元素
         }
     }
 
+    public static void main(String[] args) {
+        int[] arr = {1,3,2};
+        swap_i_j_direct(arr,1,2);
+        printArray(arr);
+    }
 }
