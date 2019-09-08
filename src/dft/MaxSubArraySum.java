@@ -1,3 +1,4 @@
+package dft;
 
 /**
  * 问题：求一个数组的最大子段和
@@ -36,7 +37,7 @@ public class MaxSubArraySum {
         for (int i = 0; i < n; i++) {
             arr[i] = (int) (Math.random() * 20 - 10);
         }
-        Utils.printArray(arr);
+        MyUtils.printArray(arr);
         System.out.println("Max sum:");
         System.out.println(maxSum(arr));
     }

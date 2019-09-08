@@ -1,0 +1,42 @@
+package dft;
+
+/**
+ * 将一个数组的2左右两段子数组顺序互换，并维持子数组中元素的顺序，如 123 | 45 --> 45 | 123。
+ * 解法：先分别对左右2个子数组进行逆序，然后再将整个数组进行一次逆序就得到答案
+ */
+public class ReverseSubArray {
+    /**
+     * split:右数组第一个元素下标
+     */
+    public static void reverseSubArray(int[] arr, int split) {
+        int len = arr.length;
+        int lenLeft = split;
+        int lenRight = len - split;
+
+        // 左数组逆序
+        for (int i = 0; i < lenLeft / 2; i++) {
+            MyUtils.swap(arr, i, lenLeft - i - 1);  // 交换对称元素
+        }
+        // 右数组逆序
+        for (int i = split; i < split + lenRight / 2; i++) {
+            MyUtils.swap(arr, i, split + len - i - 1);
+        }
+        MyUtils.reverseArray(arr);    // 整个数组再逆序
+    }
+
+    public static void main(String[] args) {
+        int len = 6;
+        int max = 100;
+        int split = 3;
+        int[] arr = MyUtils.generatePosRandomArray(len, max);
+
+        System.out.println("split element:" + arr[split]);
+        System.out.println("before reverse:");
+        MyUtils.printArray(arr);
+
+        reverseSubArray(arr, split);
+
+        System.out.println("after reverse:");
+        MyUtils.printArray(arr);
+    }
+}

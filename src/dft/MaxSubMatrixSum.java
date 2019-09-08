@@ -1,3 +1,5 @@
+package dft;
+
 /**
  * 问题：求解矩阵的最大子矩阵和，子矩阵包括自身
  * 解法：以最大子段和为基础，求解最大子矩阵和。
@@ -73,7 +75,7 @@ public class MaxSubMatrixSum {
                 matrix[i][j] = (int) (Math.random() * 20 - 10);
             }
         }
-        Utils.printMatrix(matrix);
+        MyUtils.printMatrix(matrix);
 
         System.out.println("max sub-matrix sum:");
         System.out.println(maxSubMatrixSum(matrix));
