@@ -18,6 +18,20 @@ public class MyUtils {
         return copy;
     }
 
+    /**
+     * 随机数发生器：生成随机数组用于测试，有正有负
+     *
+     * @param len 随机的数组长度
+     * @param max 最大值
+     * @return
+     */
+    public static int[] generateRandomArray(int len, int max) {
+        int[] arr = new int[(int) ((len + 1) * Math.random())]; // 长度随机
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * (max + 1)) - (int) (max * Math.random());
+        }
+        return arr;
+    }
 
     /**
      * 生成随机正数数组
@@ -72,6 +86,7 @@ public class MyUtils {
     /**
      * 交换数组arr第i,j上的元素，不使用中间变量
      * 亲测有效！
+     *
      * @param arr
      * @param i
      * @param j
@@ -95,8 +110,8 @@ public class MyUtils {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,3,2};
-        swap_i_j_direct(arr,1,2);
+        int[] arr = {1, 3, 2};
+        swap_i_j_direct(arr, 1, 2);
         printArray(arr);
     }
 }
