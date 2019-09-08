@@ -3,6 +3,22 @@ package dft;
 public class MyUtils {
 
     /**
+     * 深层复制一个数组副本
+     * @param source 原数组
+     * @return 数组副本
+     */
+    public static int[] copyArray(int[] source) {
+        if (source == null)
+            return null;
+        int[] copy = new int[source.length];
+        for (int i = 0; i < source.length; i++) {
+            copy[i] = source[i];
+        }
+        return copy;
+    }
+
+
+    /**
      * 生成随机正数数组
      */
     public static int[] generatePosRandomArray(int len,int max){

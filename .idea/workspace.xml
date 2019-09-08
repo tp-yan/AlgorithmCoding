@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74cceb37-279a-4729-95a7-df8b8b3b6a9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dft/MyUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dft/ReverseSubArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sort/BubbleSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmCoding/MaxLSubMaxR.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmCoding/MaxSubArraySum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmCoding/MaxSubMatrixSum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmCoding/Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaxLSubMaxR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/MaxLSubMaxR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaxSubArraySum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/MaxSubArraySum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MaxSubMatrixSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/MaxSubMatrixSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dft/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dft/MyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sort/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sort/BubbleSort.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +46,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ReverseSubArray">
+  <component name="RunManager" selected="Application.BubbleSort">
     <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sort.BubbleSort" />
       <module name="AlgorithmCoding" />
@@ -108,8 +96,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReverseSubArray" />
         <item itemvalue="Application.BubbleSort" />
+        <item itemvalue="Application.ReverseSubArray" />
         <item itemvalue="Application.MaxSubMatrixSum" />
         <item itemvalue="Application.MaxSubArraySum" />
         <item itemvalue="Application.MaxLSubMaxR" />
