@@ -4,6 +4,11 @@ import dft.MyUtils;
 
 public class QuickSort {
 
+    /**
+     * 随机快排使得期望时间复杂度为 O(N*logN)，因为每次选择的划分元素是任意的，所以选中最差情况是一种概率事件
+     * 空间复杂度：因为每次划分后需要记录划分位置，最好就是 logN 次划分，即二分，故为O(logN)
+     * @param arr
+     */
     public static void quickSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
