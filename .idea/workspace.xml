@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74cceb37-279a-4729-95a7-df8b8b3b6a9c" name="Default Changelist" comment="">
+    <list default="true" id="490e5683-1f75-432a-aa3f-bdd5adc8ca9a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sort/HeapSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sort/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sort/QuickSort.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +32,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -46,7 +46,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.QuickSort">
+  <component name="RunManager" selected="Application.HeapSort">
     <configuration name="FindSameElementOf2Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dft.FindSameElementOf2Arrays" />
       <module name="AlgorithmCoding" />
@@ -60,8 +60,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InsertionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sort.InsertionSort" />
+    <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sort.HeapSort" />
       <module name="AlgorithmCoding" />
       <extension name="coverage">
         <pattern>
@@ -114,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HeapSort" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.SmallSum" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.FindSameElementOf2Arrays" />
-        <item itemvalue="Application.InsertionSort" />
       </list>
     </recent_temporary>
   </component>
