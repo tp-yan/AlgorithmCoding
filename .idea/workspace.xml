@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490e5683-1f75-432a-aa3f-bdd5adc8ca9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sort/HeapSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sort/BucketSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,13 +46,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HeapSort">
-    <configuration name="FindSameElementOf2Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dft.FindSameElementOf2Arrays" />
+  <component name="RunManager" selected="Application.BucketSort">
+    <configuration name="BucketSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sort.BucketSort" />
       <module name="AlgorithmCoding" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dft.*" />
+          <option name="PATTERN" value="sort.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BucketSort" />
         <item itemvalue="Application.HeapSort" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.SmallSum" />
         <item itemvalue="Application.MergeSort" />
-        <item itemvalue="Application.FindSameElementOf2Arrays" />
       </list>
     </recent_temporary>
   </component>
@@ -127,7 +127,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="74cceb37-279a-4729-95a7-df8b8b3b6a9c" name="Default Changelist" comment="" />
+      <changelist id="490e5683-1f75-432a-aa3f-bdd5adc8ca9a" name="Default Changelist" comment="" />
       <created>1567595316809</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
