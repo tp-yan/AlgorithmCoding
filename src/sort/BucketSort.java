@@ -6,6 +6,7 @@ public class BucketSort {
     /**
      * 桶排序适用于数组元素有一定范围，而且元素个数很多，比如0~200范围内，有几亿个元素.
      * 这里实现 计数法 实现桶排序
+     *
      * @param arr
      */
     public static void bucketSort(int[] arr) {
@@ -15,9 +16,9 @@ public class BucketSort {
         // 只能处理 元素 >= 0 且 max不能太大的数组，若要处理带负数，或者 max很大的数组，需要进行偏移处理
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
-            max = Math.max(max,arr[i]);
+            max = Math.max(max, arr[i]);
         }
-        int range = max +1;   // 数组的取值范围，即桶的个数，每个取值对应一个桶
+        int range = max + 1;   // 数组的取值范围，即桶的个数，每个取值对应一个桶
         int[] bucket = new int[range];
         for (int i = 0; i < arr.length; i++) {
             bucket[arr[i]]++;   // 统计每个取值的个数
