@@ -33,5 +33,6 @@ public class SelectionSort {
 
         System.out.println("after sort:");
         MyUtils.printArray(arr);
+        MyUtils.printArray(arr);
     }
 }
