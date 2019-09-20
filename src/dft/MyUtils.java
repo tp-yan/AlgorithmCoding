@@ -109,6 +109,20 @@ public class MyUtils {
         }
     }
 
+    /**
+     * 打印链表元素
+     * @param node
+     */
+    public static void printLinkedList(Bean.Node node) {
+        System.out.println("Linked List: ");
+        while (node != null) {
+            System.out.print(node.value + " ");
+            node = node.next;
+        }
+        System.out.println();
+    }
+
+
     public static void main(String[] args) {
         int[] arr = {1, 3, 2};
         swap_i_j_direct(arr, 1, 2);
