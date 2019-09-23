@@ -5,8 +5,61 @@ import dft.MyUtils;
 public class QuickSort {
 
     /**
+     * 经典快排序：
+     * 以第一个元素作为划分元素，指针i从数组头开始往右移，指针j从数组尾开始左移，当 i > j时停止
+     * 首先j开始从最后一个元素往左移，找到第一个比划分元素小的元素，然后与i所指元素交换（i初始指向划分元素），此时j指向划分元素
+     * 然后i往右移找到第一个比划分元素大的元素，然后与j指向元素交换，此时i指向划分元素，接着j往左移，重复上述过程，直到 i > j
+     * 上述过程就是某些元素不断与划分元素交换的过程
+     *
+     * @param arr
+     */
+    public static void classicQuickSort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        classicQuickSort(arr, 0, arr.length - 1);
+    }
+
+    /**
+     * 对数组 arr的l~r部分进行排序
+     *
+     * @param arr
+     * @param l
+     * @param r
+     */
+    public static void classicQuickSort(int[] arr, int l, int r) {
+        if (l < r) {
+            int index = classicPartition(arr, l, r); // 先对数组划分，返回划分位置
+            classicQuickSort(arr, l, index - 1);
+            classicQuickSort(arr, index + 1, r);
+        }
+    }
+
+    // 经典排序中的一次划分，返回划分元素最后的位置
+    public static int classicPartition(int[] arr, int l, int r) {
+        int i = l;
+        int j = r;
+        int index = l;
+        while (i < j) {
+            while (j >= l && arr[j] >= arr[i]) j--; // 此时 arr[i] 指向划分元素
+            if (i < j) {
+                MyUtils.swap_i_j(arr, i, j);  // 此时 arr[j] 指向划分元素
+                index = j;
+            }
+            while (i <= r && arr[i] <= arr[j]) i++;
+            if (i < j) {
+                MyUtils.swap_i_j(arr, i, j);
+                index = i;
+            }
+        }
+        return index;
+    }
+
+
+    /**
      * 随机快排使得期望时间复杂度为 O(N*logN)，因为每次选择的划分元素是任意的，所以选中最差情况是一种概率事件
      * 空间复杂度：因为每次划分后需要记录划分位置，最好就是 logN 次划分，即二分，故为O(logN)
+     *
      * @param arr
      */
     public static void quickSort(int[] arr) {
@@ -38,6 +91,7 @@ public class QuickSort {
      * 2.若当前指针(l)所指元素大于s，则将其放到由边的区间：先将右区间指针左移一位，再将该元素与右区间第一个元素交换位置，
      * 则该元素被纳入右区间，但当前遍历指针不同
      * 一次划分后：[less <s ][s== equal][ >s more]
+     *
      * @param arr
      * @param l
      * @param r
@@ -65,6 +119,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generateRandomArray(20, 20);
+        int[] arrCopy = arr.clone();
         System.out.println("before sort:");
         MyUtils.printArray(arr);
 
@@ -72,5 +127,9 @@ public class QuickSort {
 
         System.out.println("after sort:");
         MyUtils.printArray(arr);
+
+        classicQuickSort(arrCopy);
+        System.out.println("classicQuickSort:");
+        MyUtils.printArray(arrCopy);
     }
 }
