@@ -1,10 +1,13 @@
 package niu_ke_practice;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 
 /**
  * 题目描述
- * 为了找到自己满意的工作，牛牛收集了每种工作的难度和报酬。牛牛选工作的标准是在难度不超过自身能力值的情况下，牛牛选择报酬最高的工作。在牛牛选定了自己的工作后，牛牛的小伙伴们来找牛牛帮忙选工作，牛牛依然使用自己的标准来帮助小伙伴们。牛牛的小伙伴太多了，于是他只好把这个任务交给了你。
+ * 为了找到自己满意的工作，牛牛收集了每种工作的难度和报酬。牛牛选工作的标准是在难度不超过自身能力值的情况下，牛牛选择报酬最高的工作。
+ * 在牛牛选定了自己的工作后，牛牛的小伙伴们来找牛牛帮忙选工作，牛牛依然使用自己的标准来帮助小伙伴们。
+ * 牛牛的小伙伴太多了，于是他只好把这个任务交给了你。
  * 输入描述:
  * 每个输入包含一个测试用例。
  * 每个测试用例的第一行包含两个正整数，分别表示工作的数量N(N<=100000)和小伙伴的数量M(M<=100000)。
@@ -13,7 +16,6 @@ import java.util.*;
  * 保证不存在两项工作的报酬相同。
  * 输出描述:
  * 对于每个小伙伴，在单独的一行输出一个正整数表示他能得到的最高报酬。一个工作可以被多个人选择。
- * <p>
  * 示例1
  * 输入
  * 3 3
@@ -25,12 +27,11 @@ import java.util.*;
  * 100
  * 1000
  * 1001
+ *
+ * 解：
+ * 让所有工作按照难度排序，放入TreeMap中，然后根据“当前困难对应的salary是所有小于等于该困难值中salary最高的”来更新TreeMap中的value
+ * 查找时，只需要找到 能力小于等于 的那个难度，取出其value即为能拿到的最高薪资
  */
-
-class Work {
-    int difficulty;
-    int salary;
-}
 
 public class NiuNiuHuntJobs {
 
@@ -39,47 +40,42 @@ public class NiuNiuHuntJobs {
         int N = sc.nextInt();
         int M = sc.nextInt();
 
-        ArrayList<Work> works = new ArrayList<>();
+        // 按 困难程度升序
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
         for (int i = 0; i < N; i++) {
-            Work work = new Work();
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            work.difficulty = a;
-            work.salary = b;
-            works.add(work);
+            treeMap.put(sc.nextInt(),sc.nextInt()); // 困难，薪资
         }
 
-        ArrayList<Integer> ability = new ArrayList<>();
-        for (int i = 0; i < M; i++) {
-            ability.add(sc.nextInt());
-        }
-
-        works.sort((o1, o2) -> o1.difficulty - o2.difficulty);
-//        System.out.println(works);
-//        System.out.println(ability);
-
-
-        HashMap<Integer, Integer> ability2pay = new HashMap<>();
-        for (Integer a : ability) {
-            if (ability2pay.containsKey(a)) {
-                System.out.println(ability2pay.get(a));
-            } else {
-                int maxPay = 0;
-                for (int i = 0; i < works.size(); i++) {
-                    if (a >= works.get(i).difficulty) {
-                        maxPay = Math.max(works.get(i).salary, maxPay);
-
-                        if (i == works.size() - 1) {
-                            System.out.println(maxPay);
-                            ability2pay.put(a, maxPay);
-                        }
-                        continue;
-                    }
-                    System.out.println(maxPay);
-                    ability2pay.put(a, maxPay);
-                    break;
+        // 更新TreeMap使得，当前困难对应的salary是所有小于等于该困难值中salary最高的
+        final int[] curMax = {Integer.MIN_VALUE};
+        treeMap.forEach(new BiConsumer<Integer, Integer>() {
+            @Override
+            public void accept(Integer integer, Integer integer2) {
+                if (curMax[0] > integer2 ) {
+                    treeMap.put(integer,curMax[0]);
+                } else if (curMax[0] < integer2) {
+                    curMax[0] = integer2;
                 }
             }
+        });
+
+        for (int i = 0; i < M; i++) {
+            int ability = sc.nextInt();
+            if (treeMap.containsKey(ability)) {
+                System.out.println(treeMap.get(ability));
+            } else {
+                Integer key = treeMap.lowerKey(ability);  // 找到 ability 前面的那一个 key
+                if (key != null) // 注意：有可能 key == null，即ability比最小难度还小，则应输出为0
+                    System.out.println(treeMap.get(key));
+                else
+                    System.out.println(0);
+            }
         }
+
     }
 }
