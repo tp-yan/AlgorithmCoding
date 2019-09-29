@@ -13,4 +13,15 @@ public class Bean {
             this.next = null;
         }
     }
+
+    // 带随机指针的节点
+    public static class NodeWithRandom {
+        public int value;
+        public NodeWithRandom next;
+        public NodeWithRandom rand;
+
+        public NodeWithRandom(int data) {
+            this.value = data;
+        }
+    }
 }

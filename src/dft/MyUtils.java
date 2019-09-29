@@ -71,6 +71,17 @@ public class MyUtils {
     }
 
     /**
+     * 数组节点间交换
+     * @param nodeArr
+     * @param i
+     * @param j
+     */
+    public static void swap_node(Bean.Node[] nodeArr, int i, int j) {
+        Bean.Node tmp = nodeArr[i];
+        nodeArr[i] = nodeArr[j];
+        nodeArr[j] = tmp;
+    }
+    /**
      * 交换数组arr第i,j上的元素，使用中一个间变量
      *
      * @param arr
@@ -86,7 +97,6 @@ public class MyUtils {
     /**
      * 交换数组arr第i,j上的元素，不使用中间变量
      * 亲测有效！
-     *
      * @param arr
      * @param i
      * @param j
