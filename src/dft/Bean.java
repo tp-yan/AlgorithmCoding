@@ -14,6 +14,17 @@ public class Bean {
         }
     }
 
+    // 双向节点
+    public static class DoubleNode {
+        public int value;
+        public DoubleNode next;
+        public DoubleNode last;
+
+        public DoubleNode(int value) {
+            this.value = value;
+        }
+    }
+
     // 带随机指针的节点
     public static class NodeWithRandom {
         public int value;

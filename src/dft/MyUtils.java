@@ -1,5 +1,6 @@
 package dft;
 
+import dft.Bean.*;
 public class MyUtils {
 
     /**
@@ -70,14 +71,39 @@ public class MyUtils {
         }
     }
 
+    public static void printLinkedList(Node head) {
+        System.out.print("Linked List: ");
+        while (head != null) {
+            System.out.print(head.value + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void printDoubleLinkedList(DoubleNode head) {
+        System.out.print("Double Linked List: ");
+        Bean.DoubleNode end = null;
+        while (head != null) {
+            System.out.print(head.value + " ");
+            end = head;
+            head = head.next;
+        }
+        System.out.print("| ");
+        while (end != null) {
+            System.out.print(end.value + " ");
+            end = end.last;
+        }
+        System.out.println();
+    }
+
     /**
      * 数组节点间交换
      * @param nodeArr
      * @param i
      * @param j
      */
-    public static void swap_node(Bean.Node[] nodeArr, int i, int j) {
-        Bean.Node tmp = nodeArr[i];
+    public static void swap_node(Node[] nodeArr, int i, int j) {
+        Node tmp = nodeArr[i];
         nodeArr[i] = nodeArr[j];
         nodeArr[j] = tmp;
     }
@@ -117,19 +143,6 @@ public class MyUtils {
         for (int i = 0; i < len / 2; i++) {
             swap_i_j(arr, i, len - i - 1);    // 交换数组前后对称元素
         }
-    }
-
-    /**
-     * 打印链表元素
-     * @param node
-     */
-    public static void printLinkedList(Bean.Node node) {
-        System.out.println("Linked List: ");
-        while (node != null) {
-            System.out.print(node.value + " ");
-            node = node.next;
-        }
-        System.out.println();
     }
 
 
