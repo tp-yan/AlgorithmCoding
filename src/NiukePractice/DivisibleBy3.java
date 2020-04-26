@@ -1,4 +1,4 @@
-package niu_ke_practice;
+package NiukePractice;
 
 import java.util.Scanner;
 
