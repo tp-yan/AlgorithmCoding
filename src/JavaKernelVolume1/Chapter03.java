@@ -78,12 +78,11 @@ public class Chapter03 {
             System.out.println("s1 == s1.substring(0,2)+\"cd\"");
         }
 
-        // 正确遍历Java字符串
-
         String ss = "\uD842\uDFB7abcd中国"; // 第一个字符超过了BMP，需要使用4个字节表示
         System.out.println(ss.charAt(0));
         System.out.println(ss.charAt(1));
         System.out.println(ss.charAt(2));
+        // 正确遍历Java字符串
         for (int i = 0; i < ss.length(); ) {
             int cp = ss.codePointAt(i); // 第i个码点
             // do something
@@ -180,6 +179,21 @@ public class Chapter03 {
         }
     }
 
+    // 多维数组
+    private void multiDimensionArray() {
+        double[][] arr = new double[4][3];
+        arr = new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}};
+        // 使用foreach遍历二维数组需要2层嵌套
+        for (double[] row : arr) {
+            for (double e : row) {
+                System.out.print(" " + e);
+            }
+        }
+        // 快速打印2维数组
+        System.out.println();
+        System.out.println(Arrays.deepToString(arr));
+    }
+
 
     public static void main(String[] args) throws IOException {
         // 命令行参数
@@ -198,5 +212,6 @@ public class Chapter03 {
         obj.copyArray();
          */
         obj.sortArray();
+        obj.multiDimensionArray();
     }
 }
