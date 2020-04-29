@@ -1,4 +1,4 @@
-package JavaKernelVolume1;
+package JavaKernelVolume1.ch04;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

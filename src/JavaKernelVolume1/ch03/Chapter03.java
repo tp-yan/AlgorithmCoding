@@ -1,4 +1,4 @@
-package JavaKernelVolume1; // 注：若源文件有包名，在控制台编译源文件、执行.class时都需要带上包名.xx，否则会出现找不到类名！
+package JavaKernelVolume1.ch03; // 注：若源文件有包名，在控制台编译源文件、执行.class时都需要带上包名.xx，否则会出现找不到类名！
 
 import java.io.Console;
 import java.io.IOException;
