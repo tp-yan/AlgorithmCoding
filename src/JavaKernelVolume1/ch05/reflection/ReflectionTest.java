@@ -26,7 +26,7 @@ public class ReflectionTest {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        // 3.如果T是任意的Java 类型（或void 关键字，), T.class 将代表匹配的类对象。
+        // 3.如果T是任意的Java 类型（或void 关键字), T.class 将代表匹配的类对象。
         // 一个Class 对象实际上表示的是一个类型，而这个类型未必一定是一种类
         Class cl3 = Random.class;
         Class cl4 = int.class; // int 不是类，但int.class 是一个Class 类型的对象。

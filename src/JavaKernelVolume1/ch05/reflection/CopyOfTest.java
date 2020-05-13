@@ -33,7 +33,14 @@ public class CopyOfTest {
         return newArray;
     }
 
-
+    /**
+     * 将一个Employee[]临时地转换成Object[] 数组，然后再把它转换回来是可以的，
+     * 但一从开始就是Object[]的数组却永远不能转换成Employee[]数组。
+     * 为
+     * @param a
+     * @param newLength
+     * @return 返回的数组，一开始就是Object[]，无法强制转为其他类型的数组
+     */
     public static Object[] badCopyOf(Object[] a, int newLength) {
         Object[] newArray = new Object[newLength]; // 此处创建的是Object[]，而不是与数组a的实际类型相同的数组，所以对返回值
         // 强制转换会报错

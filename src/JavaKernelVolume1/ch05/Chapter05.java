@@ -1,5 +1,6 @@
 package JavaKernelVolume1.ch05;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chapter05 {
@@ -47,6 +48,7 @@ public class Chapter05 {
         System.out.println("c == d? : "+(c == d));
         System.out.println("c.equals(d):"+c.equals(d));
 
+
         /* 3.参数数量可变 */
         maxDouble(1.2,1.4,-9.0); // 1.2,1.4,-9.0：自动装箱为 new double[]{1.2,1.4,-9.0}传给maxDouble。
 
@@ -58,6 +60,11 @@ public class Chapter05 {
         System.out.println("Size ="+size); // toString():打印枚举常量全名
         System.out.println("Abbreviation="+size.getAbbreviation());
         System.out.println("Ordinal="+size.ordinal());
+
+        Integer mint = 10;
+        triple(mint);
+        System.out.println(mint);
+
     }
 
     public static double maxDouble(double... values) {
@@ -67,6 +74,11 @@ public class Chapter05 {
                 largest = v;
         }
         return largest;
+    }
+
+    public static void triple(Integer x) {
+        x = 3*x;
+        System.out.println(x);
     }
 }
 
