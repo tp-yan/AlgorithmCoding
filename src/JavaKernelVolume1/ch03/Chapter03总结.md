@@ -29,7 +29,7 @@
 ##### 其他
 - String dir = System.getProperty("user.dir"):当前执行路径
 - 没有goto 语句，但<font color=red>break 语句可以带标签</font>(跳转到带标签的<font color=gren>语句块末尾</font>)，可以利用它实现从内层循环跳出的目的
-- 检测两个浮点数是否相等需要格外小心,由于舍入的误差，最终可能得不到精确值。Biglnteger和BigDecimal 这两个类可以处理包含任意长度数字序列的数值。Biglnteger 类实现了任意精度的整数运算，BigDecimal 实现了任意精度的浮点数运算
+- 检测两个浮点数是否相等需要格外小心,由于舍入的误差，最终可能得不到精确值。BigInteger和BigDecimal 这两个类可以处理包含任意长度数字序列的数值。Biglnteger 类实现了任意精度的整数运算，BigDecimal 实现了任意精度的浮点数运算
 ##### 数组
 - 一旦创建了数组，就不能再改变它的大小
 - 在Java 中，允许数组长度为0。数组长度为0 与null 不同。

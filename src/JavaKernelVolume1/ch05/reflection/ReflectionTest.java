@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -54,6 +55,7 @@ public class ReflectionTest {
     /* 4.利用反射分析类的结构 */
     // 此方法可以分析JVM加载的任何类
     public static void analyzeClass(String[] args){
+        System.out.println(Arrays.toString(args));
         String className;
         if (args.length > 0 )
             className = args[0];
@@ -62,6 +64,7 @@ public class ReflectionTest {
             System.out.println("Enter class name:");
             className = in.next();
         }
+        System.out.println("className:"+className);
         try {
             Class cl = Class.forName(className);
             Class superCl = cl.getSuperclass();
