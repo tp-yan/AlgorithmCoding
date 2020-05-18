@@ -1,9 +1,7 @@
 package JavaKernelVolume1.ch06;
 
 import JavaKernelVolume1.ch06.interfacee.Employee;
-
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Chapter06 {
     public static void main(String[] args) {
