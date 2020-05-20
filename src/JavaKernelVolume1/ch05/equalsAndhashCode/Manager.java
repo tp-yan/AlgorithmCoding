@@ -21,6 +21,10 @@ public class Manager extends Employee {
         // 同时不能直接调用getSalary()，否则陷入无限调用子类getSalary循环，导致栈溢出。
     }
 
+    public double getBonus() {
+        return bonus;
+    }
+
     public void setBonus(double b) {
         bonus = b;
     }

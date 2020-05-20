@@ -45,8 +45,12 @@ public class Employee implements Comparable<Employee>, Cloneable {// 重写Objec
         return Double.compare(this.salary, o.salary); // 比较浮点数时，一定要使用Double.compareTo()，不要直接使用比较运算符
     }
 
-    // 覆盖Object原先的逐域赋值的clone()，修饰符改为public，否则只能自身clone。
-    // 注意将返回类型设为当前类
+    /* 覆盖Object原先的逐域赋值的clone()，修饰符改为public，否则只能自身clone。
+        实际上，Employee 类有两个克隆方法：
+        Employee clone() // defined above
+        Object clone() // synthesized bridge method, overrides Object,clone
+       注意：将返回类型设为当前类而不是Object，clone时就不用强制类型转换
+     */
     @Override
     public Employee clone() throws CloneNotSupportedException {
         Employee cloned = (Employee) super.clone(); // 调用Object的clone，对域逐一复制
@@ -57,7 +61,7 @@ public class Employee implements Comparable<Employee>, Cloneable {// 重写Objec
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return getClass().getName()+"{" +
                 "hireDay=" + hireDay +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
