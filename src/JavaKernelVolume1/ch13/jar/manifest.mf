@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: JavaKernelVolume1.ch13.jar.resource.ResourceTest
+
+Name: JavaKernelVolume1/ch13/jar/sealed/
+Sealed: true
