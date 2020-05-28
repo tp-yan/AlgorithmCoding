@@ -1,6 +1,10 @@
 package dft;
 
-import static sort.QuickSort.quickSort;
+import algorithm.MyUtils;
+
+import java.util.Arrays;
+
+import static algorithm.sort.QuickSort.quickSort;
 
 public class MaxGapOfArray {
     /**
@@ -73,10 +77,10 @@ public class MaxGapOfArray {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generatePosRandomArray(5, 20);
-        MyUtils.printArray(arr);
-        System.out.println("after sort:");
+        System.out.println(Arrays.toString(arr));
+        System.out.println("after algorithm.sort:");
         quickSort(arr); // 为了便于验证，实际不用排序
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
         System.out.println("max gap:");
         System.out.println(maxGap(arr));
     }

@@ -1,6 +1,8 @@
-package sort;
+package algorithm.sort;
 
-import dft.MyUtils;
+import algorithm.MyUtils;
+
+import java.util.Arrays;
 
 public class BucketSort {
     /**
@@ -33,12 +35,12 @@ public class BucketSort {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generatePosRandomArray(10, 20);
-        System.out.println("before sort:");
-        MyUtils.printArray(arr);
+        System.out.println("before algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
 
         bucketSort(arr);
 
-        System.out.println("after sort:");
-        MyUtils.printArray(arr);
+        System.out.println("after algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
     }
 }

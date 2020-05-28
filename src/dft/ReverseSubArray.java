@@ -1,5 +1,9 @@
 package dft;
 
+import algorithm.MyUtils;
+
+import java.util.Arrays;
+
 /**
  * 将一个数组的2左右两段子数组顺序互换，并维持子数组中元素的顺序，如 123 | 45 --> 45 | 123。
  * 要求：最多使用一个额外空间！
@@ -16,11 +20,11 @@ public class ReverseSubArray {
 
         // 左数组逆序
         for (int i = 0; i < lenLeft / 2; i++) {
-            MyUtils.swap_i_j(arr, i, lenLeft - i - 1);  // 交换对称元素。全部是在原数组上操作，只使用了一个额外变量
+            MyUtils.swapIJ(arr, i, lenLeft - i - 1);  // 交换对称元素。全部是在原数组上操作，只使用了一个额外变量
         }
         // 右数组逆序
         for (int i = split; i < split + lenRight / 2; i++) {
-            MyUtils.swap_i_j(arr, i, split + len - i - 1);
+            MyUtils.swapIJ(arr, i, split + len - i - 1);
         }
         MyUtils.reverseArray(arr);    // 整个数组再逆序
     }
@@ -33,11 +37,11 @@ public class ReverseSubArray {
 
         System.out.println("split element:" + arr[split]);
         System.out.println("before reverse:");
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
 
         reverseSubArray(arr, split);
 
         System.out.println("after reverse:");
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

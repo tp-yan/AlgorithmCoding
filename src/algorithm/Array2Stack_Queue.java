@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 public class Array2Stack_Queue {
     /**

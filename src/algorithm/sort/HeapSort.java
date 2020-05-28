@@ -1,6 +1,8 @@
-package sort;
+package algorithm.sort;
 
-import dft.MyUtils;
+import algorithm.MyUtils;
+
+import java.util.Arrays;
 
 public class HeapSort {
     /**
@@ -21,10 +23,10 @@ public class HeapSort {
         }
         // 2. 数组排序：堆调整，heapify
         int heapSize = arr.length;  // 堆大小
-        MyUtils.swap_i_j(arr, 0, --heapSize); // 将堆顶元素放到数组最后，并且堆大小-1
+        MyUtils.swapIJ(arr, 0, --heapSize); // 将堆顶元素放到数组最后，并且堆大小-1
         while (heapSize > 0) {
             heapify(arr, 0, heapSize);
-            MyUtils.swap_i_j(arr, 0, --heapSize);
+            MyUtils.swapIJ(arr, 0, --heapSize);
         }
     }
 
@@ -36,7 +38,7 @@ public class HeapSort {
      */
     public static void heapInsert(int[] arr, int index) {
         while (arr[index] > arr[(index - 1) / 2]) {// (index - 1) / 2：是当前节点index的父节点
-            MyUtils.swap_i_j(arr, index, (index - 1) / 2);
+            MyUtils.swapIJ(arr, index, (index - 1) / 2);
             index = (index - 1) / 2;    // 换到父节点后，更新当前索引，并继续向上一层比较，直到满足大堆结构
         }
     }
@@ -57,7 +59,7 @@ public class HeapSort {
             if (largest == index)   // 此时满足大堆结构，则结束本次调整
                 break;
             // 否则将父节点往下调，直到满足大堆结构
-            MyUtils.swap_i_j(arr, index, largest);
+            MyUtils.swapIJ(arr, index, largest);
             index = largest;
             left = index * 2 + 1;
         }
@@ -65,12 +67,12 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generateRandomArray(20, 20);
-        System.out.println("before sort:");
-        MyUtils.printArray(arr);
+        System.out.println("before algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
 
         heapSort(arr);
 
-        System.out.println("after sort:");
-        MyUtils.printArray(arr);
+        System.out.println("after algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
     }
 }

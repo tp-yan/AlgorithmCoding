@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 /**
  * 在行列都排好序的矩阵中找数

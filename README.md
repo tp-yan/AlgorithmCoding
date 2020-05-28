@@ -7,7 +7,7 @@
 
 
 
-##### 2. sort:关于排序
+##### 2. algorithm.sort:关于排序
 - BubbleSort：冒泡排序
 
 

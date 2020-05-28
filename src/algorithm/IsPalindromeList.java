@@ -1,13 +1,12 @@
-package data_strcuct;
+package algorithm;
 
 // 回文：正反序字符串相同，即从中间对称的
 
-import dft.Bean;
 import dft.Bean.Node;
 
 import java.util.Stack;
 
-import static dft.MyUtils.printLinkedList;
+import static algorithm.MyUtils.printLinkedList;
 
 /**
  * 判断一个链表是否为回文结构

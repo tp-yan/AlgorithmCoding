@@ -1,9 +1,12 @@
 package dft;
 
+import algorithm.MyUtils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import static sort.QuickSort.quickSort;
+import static algorithm.sort.QuickSort.quickSort;
 
 public class GetAllNotIncluded {
     /**
@@ -53,10 +56,10 @@ public class GetAllNotIncluded {
         int[] A = MyUtils.generateRandomArray(20, 40);
         quickSort(A);
         System.out.println("A:");
-        MyUtils.printArray(A);
+        System.out.println(Arrays.toString(A));
         int[] B = MyUtils.generateRandomArray(10, 40);
         System.out.println("B:");
-        MyUtils.printArray(B);
+        System.out.println(Arrays.toString(B));
         System.out.println("getAllNotIncluded:");
         System.out.println(getAllNotIncluded(A, B));
     }

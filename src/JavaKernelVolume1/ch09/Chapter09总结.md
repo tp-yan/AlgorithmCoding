@@ -131,20 +131,20 @@ rawList.add(new Date()); //视图的add 方法将检测插入的对象是否属�
 - 如果列表支持add 和remove 方法，则是可改变大小的。
 ```Java
 List<Employee> staff = new LinkedList<>();
-Collections.sort(staff); // 这个方法要求列表元素实现了Comparable 接口
+Collections.algorithm.sort(staff); // 这个方法要求列表元素实现了Comparable 接口
 // comparingDouble:传入一个double键提取函数
-staff.sort(Comparator.comparingDouble(Employee::getSalary)); // 采用其他方式对列表进行排序
+staff.algorithm.sort(Comparator.comparingDouble(Employee::getSalary)); // 采用其他方式对列表进行排序
 // 根据元素类型的compareTo 方法给定排序顺序，按照逆序对列表staff 进行排序
-staff.sort(Comparator.reverseOrder()); // 返回一个比较器，比较器则返回 b.compareTo(a)。
+staff.algorithm.sort(Comparator.reverseOrder()); // 返回一个比较器，比较器则返回 b.compareTo(a)。
 // 同样地，按薪资降序
-staff.sort(Comparator.comparingDouble(Employee::getSalary).reversed());
+staff.algorithm.sort(Comparator.comparingDouble(Employee::getSalary).reversed());
 ```
 `Collections.shuffle`算法：
  如果提供的列表没有实现`RandomAccess` 接口，`shuffle` 方法将元素复制到数组中，然后打乱数组元素的顺序，最后再将打乱顺序后的元素复制回列表。
  ```Java
 Collections.shuffle(numbers);
 List<Integer> winningCombination = numbers.subList(0, 6);
-Collections.sort(winningCombination);
+Collections.algorithm.sort(winningCombination);
 ```
 ##### 二分查找
 Collections 类的`binarySearc`h 方法，必须是实现了`List接口`的有序集合。如果为binarySearch 算法提供一个链表，它将自动地变为线性查找。**只有采用随机访问，二分査找才有意义。**

@@ -1,6 +1,10 @@
 package dft;
 
-import static sort.SelectionSort.selectionSort;
+import algorithm.MyUtils;
+
+import java.util.Arrays;
+
+import static algorithm.sort.SelectionSort.selectionSort;
 
 public class FindSameElementOf2Arrays {
     /**
@@ -32,8 +36,8 @@ public class FindSameElementOf2Arrays {
         selectionSort(arrA);
         selectionSort(arrB);
 
-        MyUtils.printArray(arrA);
-        MyUtils.printArray(arrB);
+        System.out.println(Arrays.toString(arrA));
+        System.out.println(Arrays.toString(arrB));
 
         findSameElementOf2Arrays(arrA, arrB);
     }

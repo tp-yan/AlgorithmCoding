@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 import java.util.LinkedList;
 import java.util.Queue;

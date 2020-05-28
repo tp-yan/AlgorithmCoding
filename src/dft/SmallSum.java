@@ -1,5 +1,9 @@
 package dft;
 
+import algorithm.MyUtils;
+
+import java.util.Arrays;
+
 /**
  * 求小和：将数组中的每个元素左边比他小的元素求和再一起累加
  * 思想：从另一视角考虑，不考虑每个元素左边比它小的元素和，而是考虑每个元素右边比它大的元素个数（即该元素会被累加的次数），
@@ -54,7 +58,7 @@ public class SmallSum {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generateRandomArray(5, 20);
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
 
         int sum = smallSum(arr);
 

@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 /**
  * 转圈打印矩阵

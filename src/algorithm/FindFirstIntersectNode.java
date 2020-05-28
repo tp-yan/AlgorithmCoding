@@ -1,8 +1,6 @@
-package data_strcuct;
+package algorithm;
 
 import dft.Bean.*;
-
-import java.util.HashSet;
 
 /**
  * 两个单链表相交的一系列问题

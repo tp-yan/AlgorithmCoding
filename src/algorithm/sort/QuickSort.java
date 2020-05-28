@@ -1,6 +1,8 @@
-package sort;
+package algorithm.sort;
 
-import dft.MyUtils;
+import algorithm.MyUtils;
+
+import java.util.Arrays;
 
 public class QuickSort {
 
@@ -43,12 +45,12 @@ public class QuickSort {
         while (i < j) {
             while (j >= l && arr[j] >= arr[i]) j--; // 此时 arr[i] 指向划分元素
             if (i < j) {
-                MyUtils.swap_i_j(arr, i, j);  // 此时 arr[j] 指向划分元素
+                MyUtils.swapIJ(arr, i, j);  // 此时 arr[j] 指向划分元素
                 index = j;
             }
             while (i <= r && arr[i] <= arr[j]) i++;
             if (i < j) {
-                MyUtils.swap_i_j(arr, i, j);
+                MyUtils.swapIJ(arr, i, j);
                 index = i;
             }
         }
@@ -73,7 +75,7 @@ public class QuickSort {
         if (l < r) {// 递归 终止条件
             // 第一步：为了实现 随机快速排序，先随机选一个数组元素与最后一个交换。
             // 经典快速排序就是每次都选最后一个作为划分元素，存在最坏情况 O(N^2)
-            MyUtils.swap_i_j(arr, l + (int) ((r - l + 1) * Math.random()), r);
+            MyUtils.swapIJ(arr, l + (int) ((r - l + 1) * Math.random()), r);
             // 第二步：划分，找到分割2个子数组的边界
             int[] split = partition(arr, l, r); // 将 arr 完成划分后，返回中间与划分元素相等的子数组左右界
             // 第三步：子数组继续快排
@@ -103,33 +105,50 @@ public class QuickSort {
         while (l < more) {  // l：遍历指针
             if (arr[l] < arr[r]) {// 1.若当前指针(l)所指元素小于s，则将其放到左边的区间：先将左区间指针右移一位，再将该元素
                 // 与左区间最后一个元素交换位置，则该元素被纳入左区间，最后当前遍历指针右移一位
-                MyUtils.swap_i_j(arr, ++less, l++);
+                MyUtils.swapIJ(arr, ++less, l++);
             } else if (arr[l] > arr[r]) {// 2.若当前指针(l)所指元素大于s，则将其放到由边的区间：先将右区间指针左移一位，
                 // 再将该元素与右区间第一个元素交换位置，则该元素被纳入右区间，但当前遍历指针不同
-                MyUtils.swap_i_j(arr, --more, l);
+                MyUtils.swapIJ(arr, --more, l);
             } else {
                 l++;    // 相等只需移动当前指针
             }
         }
         // 当排序完后，需要将 划分元素 s == arr[r] 与 右区间第一个元素交换，才算结束
-        MyUtils.swap_i_j(arr, r, more);
+        MyUtils.swapIJ(arr, r, more);
 
         return new int[]{less + 1, more};  // more指向划分元素
+    }
+
+
+    public static int basePartition(int[] arr, int l, int r) {
+        int less = l - 1; // 只用指示小于等于区的右边界即可
+        while (l <= r) { // 以 l 作为遍历指针
+            if (arr[l] <= arr[r]) {
+                MyUtils.swapIJ(arr, ++less, l++); // 将当前指示元素与小于等于区的后一个素交换，然后右边界右移
+            } else l++; // 若大于划分元素，则指针直接后移
+        }
+        return less;
     }
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generateRandomArray(20, 20);
         int[] arrCopy = arr.clone();
-        System.out.println("before sort:");
-        MyUtils.printArray(arr);
+        System.out.println("before algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
 
         quickSort(arr);
 
-        System.out.println("after sort:");
-        MyUtils.printArray(arr);
+        System.out.println("after algorithm.sort:");
+        System.out.println(Arrays.toString(arr));
 
         classicQuickSort(arrCopy);
         System.out.println("classicQuickSort:");
-        MyUtils.printArray(arrCopy);
+        System.out.println(Arrays.toString(arrCopy));
+
+        int[] array = {3, 6, 7, 1, 0, 5};
+        System.out.println(Arrays.toString(array));
+        int pos = basePartition(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
+        System.out.println("pos:" + pos);
     }
 }

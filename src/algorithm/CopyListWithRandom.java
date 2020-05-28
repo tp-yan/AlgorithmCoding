@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 import dft.Bean;
 import dft.Bean.*;

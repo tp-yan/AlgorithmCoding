@@ -1,4 +1,4 @@
-package data_strcuct;
+package algorithm;
 
 /**
  * “之”字形打印矩阵

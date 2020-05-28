@@ -1,5 +1,9 @@
 package dft;
 
+import algorithm.MyUtils;
+
+import java.util.Arrays;
+
 public class NetherlandsFlag {
     /**
      * 划分：用指定值split作为划分元素，而非数组中的元素，使得 [less < split] [== split] [ > split]
@@ -17,9 +21,9 @@ public class NetherlandsFlag {
 
         while (index < more) {  // 当遍历指针碰到右区间边界时停止
             if (arr[index] < split) { // 小于元素放于左区间
-                MyUtils.swap_i_j(arr, ++less, index++);   // 左区间向右扩大，交换元素，遍历指针右移
+                MyUtils.swapIJ(arr, ++less, index++);   // 左区间向右扩大，交换元素，遍历指针右移
             } else if (arr[index] > split) {
-                MyUtils.swap_i_j(arr, --more, index); // 右区间向左扩大，交换元素，遍历指针不动
+                MyUtils.swapIJ(arr, --more, index); // 右区间向左扩大，交换元素，遍历指针不动
             } else {
                 index++; // 相等时，只移动遍历指针
             }
@@ -29,12 +33,12 @@ public class NetherlandsFlag {
 
     public static void main(String[] args) {
         int[] arr = MyUtils.generatePosRandomArray(10, 20);
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
         int[] border = partition(arr, 0, arr.length - 1, 10);
         if (border[0] > border[1]) {
             System.out.println("没有相等区间！");
         } else
             System.out.println("border: [" + border[0] + "," + border[1] + "]");
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

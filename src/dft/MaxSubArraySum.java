@@ -1,5 +1,7 @@
 package dft;
 
+import java.util.Arrays;
+
 /**
  * 问题：求一个数组的最大子段和
  * 解法：如下三步算法解释（非动态规划视角），假设答案法：先假设得到了一个解，然后去分析这个解满足的一些性质，再反过来根据这些性质
@@ -37,7 +39,7 @@ public class MaxSubArraySum {
         for (int i = 0; i < n; i++) {
             arr[i] = (int) (Math.random() * 20 - 10);
         }
-        MyUtils.printArray(arr);
+        System.out.println(Arrays.toString(arr));
         System.out.println("Max sum:");
         System.out.println(maxSum(arr));
     }

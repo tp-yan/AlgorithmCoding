@@ -1,9 +1,8 @@
-package data_strcuct;
+package algorithm;
 
-import dft.Bean;
 import dft.Bean.Node;
 
-import static dft.MyUtils.printLinkedList;
+import static algorithm.MyUtils.printLinkedList;
 
 /**
  * 打印两个有序链表的公共部分

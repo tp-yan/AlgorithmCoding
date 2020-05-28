@@ -1,6 +1,9 @@
-package dft;
+package algorithm;
 
 import dft.Bean.*;
+
+import java.util.Arrays;
+
 public class MyUtils {
 
     /**
@@ -22,12 +25,12 @@ public class MyUtils {
     /**
      * 随机数发生器：生成随机数组用于测试，有正有负
      *
-     * @param len 随机的数组长度
-     * @param max 最大值
+     * @param maxLlen 随机的数组最大长度
+     * @param max     最大值
      * @return
      */
-    public static int[] generateRandomArray(int len, int max) {
-        int[] arr = new int[(int) ((len + 1) * Math.random())]; // 长度随机
+    public static int[] generateRandomArray(int maxLlen, int max) {
+        int[] arr = new int[(int) ((maxLlen + 1) * Math.random())]; // 长度随机
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * (max + 1)) - (int) (max * Math.random());
         }
@@ -43,18 +46,6 @@ public class MyUtils {
             arr[i] = (int) (Math.random() * (max + 1));
         }
         return arr;
-    }
-
-    /**
-     * 打印数组
-     *
-     * @param arr
-     */
-    public static void printArray(int[] arr) {
-        for (int value : arr) {
-            System.out.print(value + "\t");
-        }
-        System.out.println();
     }
 
     /**
@@ -82,7 +73,7 @@ public class MyUtils {
 
     public static void printDoubleLinkedList(DoubleNode head) {
         System.out.print("Double Linked List: ");
-        Bean.DoubleNode end = null;
+        DoubleNode end = null;
         while (head != null) {
             System.out.print(head.value + " ");
             end = head;
@@ -98,6 +89,7 @@ public class MyUtils {
 
     /**
      * 数组节点间交换
+     *
      * @param nodeArr
      * @param i
      * @param j
@@ -107,6 +99,7 @@ public class MyUtils {
         nodeArr[i] = nodeArr[j];
         nodeArr[j] = tmp;
     }
+
     /**
      * 交换数组arr第i,j上的元素，使用中一个间变量
      *
@@ -114,7 +107,8 @@ public class MyUtils {
      * @param i
      * @param j
      */
-    public static void swap_i_j(int[] arr, int i, int j) {
+    public static void swapIJ(int[] arr, int i, int j) {
+        if (i == j) return;
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
@@ -123,11 +117,13 @@ public class MyUtils {
     /**
      * 交换数组arr第i,j上的元素，不使用中间变量
      * 亲测有效！
+     *
      * @param arr
      * @param i
      * @param j
      */
-    public static void swap_i_j_direct(int[] arr, int i, int j) {
+    public static void swapIJDirect(int[] arr, int i, int j) {
+        if (i == j) return;
         arr[i] = arr[i] ^ arr[j];
         arr[j] = arr[i] ^ arr[j];
         arr[i] = arr[i] ^ arr[j];
@@ -141,14 +137,14 @@ public class MyUtils {
     public static void reverseArray(int[] arr) {
         int len = arr.length;
         for (int i = 0; i < len / 2; i++) {
-            swap_i_j(arr, i, len - i - 1);    // 交换数组前后对称元素
+            swapIJ(arr, i, len - i - 1);    // 交换数组前后对称元素
         }
     }
 
 
     public static void main(String[] args) {
         int[] arr = {1, 3, 2};
-        swap_i_j_direct(arr, 1, 2);
-        printArray(arr);
+        swapIJDirect(arr, 1, 2);
+        System.out.println(Arrays.toString(arr));
     }
 }

@@ -1,10 +1,10 @@
-package data_strcuct;
+package algorithm;
 
 import dft.Bean;
 import dft.Bean.*;
 
-import static dft.MyUtils.printDoubleLinkedList;
-import static dft.MyUtils.printLinkedList;
+import static algorithm.MyUtils.printDoubleLinkedList;
+import static algorithm.MyUtils.printLinkedList;
 
 /**
  * 反转单向和双向链表
