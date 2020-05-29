@@ -35,7 +35,7 @@ public class ConcurrentSetTest {
         // a.调用compute 方法时可以提供一个键和一个计算新值的函数。
         counter.compute(word, (k, v) -> v == null ? 1 : v + 1);
         /* (2) merge方法有一个参数表示键不存在时使用的初始值。否则，就会调用你提供的函数来结合原值与初始值（与compute不同，这个函数不处理键）
-         * merge方法适合解决：首次增加一个键时通常需要做些特殊的处理。 */
+         * merge方法适合解决：首次增加一个键时需要做些特殊的处理。 */
         counter.merge(word, 1L, (existingValue, nValue) -> existingValue + nValue);
         counter.merge(word, 1L, Long::sum);
 

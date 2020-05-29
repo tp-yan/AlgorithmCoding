@@ -16,7 +16,7 @@ import java.util.concurrent.FutureTask;
  * Callable 接口的参数化类型指示方法返回类型；
  * Future 保存异步计算的结果。可以启动一个计算，将Future 对象交给某个线程，Future 对象的所有者在结果计算好之后就可以获得它。
  * <p>
- * FutureTask 包装器是一种非常便利的机制，可将Callable 转换成Future 和Runnable, 它 同时实现二者的接口。
+ * FutureTask 包装器是一种非常便利的机制，可将Callable 转换成 Future 和 Runnable, 它 同时实现二者的接口。
  */
 public class FutureTest {
     public static void main(String[] args) {
