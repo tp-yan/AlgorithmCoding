@@ -1,4 +1,4 @@
-package dft;
+package algorithm.dft;
 
 import java.util.Arrays;
 

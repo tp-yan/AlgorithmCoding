@@ -1,5 +1,5 @@
 # AlgorithmCoding
-##### 1. dft
+##### 1. algorithm.dft
 - MaxLSubMaxR：数组划分使 max |max左 - max右|
 - MaxSubArraySum：数组最大子段和
 - MaxSubMatrixSum：最大子矩阵和

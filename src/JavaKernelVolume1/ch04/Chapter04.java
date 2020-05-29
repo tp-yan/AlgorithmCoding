@@ -40,6 +40,8 @@ public class Chapter04 {
 
 
     public static void main(String[] args) {
+        System.out.println(Employee.testFiled);
+
         Chapter04 c04 = new Chapter04();
         c04.printThisMonth();
 
@@ -77,6 +79,15 @@ class Employee {
     private final int id; // final实例域，必须确保在构造方法执行后被初始化，且后面不能被修改
     private String name;
     private double salary = 0.0; // 实例域定义时初始化
+
+    // static域可以通过 静态方法、静态代码块、声明时同时赋值来初始化
+    public static String testFiled = initString();
+    public static String testFiled2 = new String("abc");
+    public static String testFiled3 = "123";
+
+    private static String initString() {
+        return "init static field from static method";
+    }
 
     // 静态初始化块
     static {

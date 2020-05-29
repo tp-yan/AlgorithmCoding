@@ -1,4 +1,4 @@
-package dft;
+package algorithm.dft;
 
 /**
  * 问题：将一个数组arr划分成左右两段，使得 max左 - max右 绝对值最大

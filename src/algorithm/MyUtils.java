@@ -1,6 +1,6 @@
 package algorithm;
 
-import dft.Bean.*;
+import algorithm.dft.Bean.*;
 
 import java.util.Arrays;
 

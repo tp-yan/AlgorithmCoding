@@ -2,7 +2,7 @@ package algorithm;
 
 // 回文：正反序字符串相同，即从中间对称的
 
-import dft.Bean.Node;
+import algorithm.dft.Bean.Node;
 
 import java.util.Stack;
 

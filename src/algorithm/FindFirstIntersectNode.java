@@ -1,6 +1,6 @@
 package algorithm;
 
-import dft.Bean.*;
+import algorithm.dft.Bean.*;
 
 /**
  * 两个单链表相交的一系列问题

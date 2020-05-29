@@ -1,6 +1,6 @@
 package algorithm;
 
-import dft.Bean.Node;
+import algorithm.dft.Bean.Node;
 
 import static algorithm.MyUtils.printLinkedList;
 

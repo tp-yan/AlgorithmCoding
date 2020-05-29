@@ -1,7 +1,7 @@
 package algorithm;
 
-import dft.Bean;
-import dft.Bean.*;
+import algorithm.dft.Bean;
+import algorithm.dft.Bean.*;
 
 import static algorithm.MyUtils.printLinkedList;
 

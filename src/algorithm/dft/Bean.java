@@ -1,4 +1,4 @@
-package dft;
+package algorithm.dft;
 
 /**
  * 存放需复用的类定义

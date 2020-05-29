@@ -168,7 +168,7 @@ Class 类中的getFields、getMethods 和getConstructors 方法将分别返回�
 
 ###### 使用反射编写泛型数组代码
 - 将一个Employee[]临时地转换成Object[] 数组，然后再把它转换回来是可以的，但一从开始就是Object[]的数组却永远不能转换成Employee[]数组。
-- Array 类中的静态方法newlnstance,它能够构造新数组。在调用它时必须提供两个参数，一个是数组的元素类型，一个是数组的长度：`Object newArray = Array.newlnstance(componentType, newLength) ;`
+- Array 类中的静态方法newInstance,它能够构造新数组。在调用它时必须提供两个参数，一个是数组的元素类型，一个是数组的长度：`Object newArray = Array.newlnstance(componentType, newLength) ;`
 - 任意的数组对象，其直接父类都是Object。故int[] 可以被转换成Object，但不能转换成Object[]。
 
 ##### 调用任意方法
