@@ -1,5 +1,7 @@
 package JianzhiOffer.Chapter02.singleton;
 
+import java.util.HashMap;
+
 /**
  * 实现单例模式：多线程安全版，使用静态内部类实现。-- 推荐
  * 补充：外部类和内部类可以访问对方的所有成员和方法（包括私有）。
@@ -28,5 +30,6 @@ public class Singleton5 {
         Singleton5 singleton = Singleton5.getInstance();
         InnerClass innerClass = new Singleton5.InnerClass();
         innerClass = new InnerClass();
+
     }
 }

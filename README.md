@@ -1,5 +1,5 @@
 # AlgorithmCoding
-##### 1. algorithm.dft
+##### 1. zuo.dft
 - MaxLSubMaxR：数组划分使 max |max左 - max右|
 - MaxSubArraySum：数组最大子段和
 - MaxSubMatrixSum：最大子矩阵和
@@ -7,7 +7,7 @@
 
 
 
-##### 2. algorithm.sort:关于排序
+##### 2. zuo.sort:关于排序
 - BubbleSort：冒泡排序
 
 
