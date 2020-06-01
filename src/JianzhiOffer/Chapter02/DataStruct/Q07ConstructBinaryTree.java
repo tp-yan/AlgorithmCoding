@@ -79,7 +79,7 @@ public class Q07ConstructBinaryTree {
         Test7();
     }
 
-    private static class BinaryTreeNode {
+    public static class BinaryTreeNode {
         public int value;
         public BinaryTreeNode leftNode;
         public BinaryTreeNode rightNode;

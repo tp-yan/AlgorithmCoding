@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 /**
  * 转圈打印矩阵
@@ -64,7 +64,7 @@ public class PrintMatrixSpiralOrder {
             while (curCol > cA) { // ← 左移
                 System.out.println(matrix[curRow][curCol--]);
             }
-            while (curRow > rA) { // ← 左移
+            while (curRow > rA) { // ↑ 上移
                 System.out.println(matrix[curRow--][curCol]);
             }
         }

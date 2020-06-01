@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 /**
  * 在行列都排好序的矩阵中找数

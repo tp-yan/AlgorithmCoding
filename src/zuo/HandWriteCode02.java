@@ -1,7 +1,6 @@
 package zuo;
 
-import zuo.DataStruct.RandomPool;
-
+import zuo.HandWriteCode02.PalindromeList.Node;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -434,14 +433,175 @@ public class HandWriteCode02 {
             if (counter == 0)
                 return null;
             // 连续整数段：0~counter-1
-            int random = (int)(Math.random()*counter);
+            int random = (int) (Math.random() * counter);
             return mapB.get(random);
         }
     }
 
+    // 6.转圈打印矩阵，详见：zuo.DataStruct.PrintMatrixSpiralOrder
+    public static class PrintMatrixSpiralOrder {
+        public static void printMatrix(int[][] matrix) {
+            if (matrix == null) return;
+            // A：矩阵左上角，B：矩阵右下角点
+            int rowA = 0;
+            int colA = 0;
+            int rowB = matrix.length - 1;
+            int colB = matrix[0].length - 1;
+
+            // 每次打印A,B矩阵的外围，然后A右下移，B左上移，指向下一个矩阵
+            while (rowA <= rowB && colA <= colB) {
+                printEdge(matrix, rowA++, colA++, rowB--, colB--);
+            }
+        }
+
+        public static void printEdge(int[][] matrix, int rowA, int colA, int rowB, int colB) {
+            // 特殊矩阵
+            if (rowA == rowB) {
+                while (colA <= colB)
+                    System.out.print(matrix[rowA][colA++] + " ");
+            } else if (colA == colB) {
+                while (rowA <= rowB)
+                    System.out.print(matrix[rowA++][colA] + " ");
+            } else {
+                int curRow = rowA;
+                int curCol = colA;
+                while (curCol < colB)  // → 右移,末尾元素不打印
+                    System.out.print(matrix[curRow][curCol++] + " ");
+                while (curRow < rowB) // ↓下移,末尾元素不打印
+                    System.out.print(matrix[curRow++][curCol] + " ");
+                while (colA < curCol) // ← 左移,末尾元素不打印
+                    System.out.print(matrix[curRow][curCol--] + " ");
+                while (rowA < curRow) // ↑ 上移
+                    System.out.print(matrix[curRow--][curCol] + " ");
+            }
+        }
+    }
+
+    // 7.“之”字型打印矩阵，详见 zuo.DataStruct.ZigZagPrintMatrix
+    public static class PrintZigZagMatrix {
+        public static void printMatrix(int[][] matrix) {
+            if (matrix == null || matrix.length < 1) return;
+            // 初始都指向矩阵左上角位置
+            int rowA = 0;
+            int colA = 0;
+            int rowB = 0;
+            int colB = 0;
+            int endRow = matrix.length - 1;
+            int endCol = matrix[0].length - 1;
+            boolean fromUp = false; // 是否斜下方向
+
+            while (rowA <= endRow && colB <= endCol) {// 因为AB点是同步移动，且开始都在左上角，最后结束时一定都在矩阵右下角。
+                printDialog(matrix, rowA, colA, rowB, colB, fromUp);
+                // A点先右移到边界再下移
+                rowA = colA == endCol ? rowA + 1 : rowA;
+                colA = colA == endCol ? colA : colA + 1;
+                // B点先下移到边界再右移
+                // 千万要注意：因为这是以 rowB作为判断条件，一定要在后面才修改rowB，否则colB无法得到正确值！！！
+                colB = rowB == endRow ? colB + 1 : colB;
+                rowB = rowB == endRow ? rowB : rowB + 1;
+
+                fromUp = !fromUp;
+            }
+        }
+
+        // 打印 (rowA,colA)和(rowB,colB)所指示的对角线元素
+        private static void printDialog(int[][] matrix, int rowA, int colA, int rowB, int colB, boolean fromUp) {
+            if (fromUp) {// 斜下
+                while (rowA <= rowB) {
+                    System.out.print(matrix[rowA++][colA--] + " ");
+                }
+            } else { // 斜上
+                while (colB <= colA)
+                    System.out.print(matrix[rowB--][colB++] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // 8.判断一个链表是否为回文结构，详见zuo.DataStruct.IsPalindromeList
+    // 不限空间，可以使用栈结构，限空间O(1)，只能先修改链表结构再还原
+    public static class PalindromeList {
+        static class Node {
+            int value;
+            Node next;
+
+            public Node(int value) {
+                this.value = value;
+            }
+        }
+
+        // (1)快慢指针 + 修改链表
+        public static boolean isPalindromeList1(Node head) {
+            if (head == null) return false;
+            if (head.next == null) return true;
+            Node fast = head;
+            Node slow = head;
+            // 找到链表中间位置
+            while (fast.next != null && fast.next.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            // 后段链表逆序
+            Node cur = slow.next;
+            Node pre = slow;
+            slow.next = null;
+            while (cur != null) {
+                slow = cur.next; // slow充当临时指针
+                cur.next = pre;
+                pre = cur;
+                cur = slow;
+            }// 最后 cur == null，pre指向末尾元素
+            slow = pre; // 记住末尾元素，用于后续还原链表
+
+            // 两端对比
+            boolean res = true;
+            cur = head;
+            while (cur != null && pre != null) {
+                if (cur.value != pre.value) {
+                    res = false;
+                    break;
+                }
+                cur = cur.next;
+                pre = pre.next;
+            }
+
+            // 还原链表
+            cur = slow;
+            pre = slow.next;
+            cur.next = null;
+            while (pre != null) {
+                slow = pre.next;
+                pre.next = cur;
+                cur = pre;
+                pre = slow;
+            }
+            return res;
+        }
+
+        // (2)使用栈
+        public static boolean isPalindromeList2(Node head) {
+            if (head == null) return false;
+            if (head.next == null) return true;
+
+            Node cur = head;
+            Stack<Integer> stack = new Stack<>();
+            while (cur != null) {
+                stack.push(cur.value);
+                cur = cur.next;
+            }
+            while (head != null) {
+                if (head.value != stack.pop())
+                    return false;
+                head = head.next;
+            }
+            return true;
+        }
+
+    }
+
 
     public static void main(String[] args) {
-        testRandomPool();
+        testPalindromeList();
     }
 
     public static void testCatDogQueue() {
@@ -486,8 +646,7 @@ public class HandWriteCode02 {
             System.out.println(test.pollAll().getPetType());
         }
     }
-
-    public static void testRandomPool(){
+    public static void testRandomPool() {
         RandomPool pool = new RandomPool();
         pool.insert("zhang");
         pool.insert("san");
@@ -505,5 +664,101 @@ public class HandWriteCode02 {
         System.out.println(pool.getRandom());
         System.out.println(pool.getRandom());
         System.out.println(pool.getRandom());
+    }
+    public static void testPrintZigZagMatrix() {
+        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        PrintZigZagMatrix.printMatrix(matrix);
+    }
+
+    public static void testPalindromeList() {
+        PalindromeList.Node head = null;
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new PalindromeList.Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new PalindromeList.Node(1);
+        head.next = new PalindromeList.Node(2);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new PalindromeList.Node(1);
+        head.next = new PalindromeList.Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new PalindromeList.Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + "" +
+                " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(2);
+        head.next.next.next = new Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(2);
+        head.next.next.next.next = new Node(1);
+        printLinkedList(head);
+        System.out.print(PalindromeList.isPalindromeList1(head) + " | ");
+        System.out.println(PalindromeList.isPalindromeList2(head) + " | ");
+        printLinkedList(head);
+        System.out.println("=========================");
+    }
+
+    public static void printLinkedList(Node head) {
+        System.out.print("Linked List: ");
+        while (head != null) {
+            System.out.print(head.value + " ");
+            head = head.next;
+        }
+        System.out.println();
     }
 }

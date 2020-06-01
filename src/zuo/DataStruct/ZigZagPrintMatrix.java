@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 /**
  * “之”字形打印矩阵
