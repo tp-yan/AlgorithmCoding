@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 import zuo.dft.Bean.Node;
 
@@ -11,7 +11,7 @@ import static zuo.MyUtils.printLinkedList;
  * 解：
  * 2个指针，小指针先动，相同时，同时动并打印元素，直到其中一个为null
  */
-public class PrintCommonPart {
+public class PrintListCommonPart {
 
     public static void printCommonPart(Node head1, Node head2) {
         while (head1 != null && head2 != null) {
@@ -19,7 +19,7 @@ public class PrintCommonPart {
                 head1 = head1.next;
             } else if (head1.value > head2.value) {
                 head2 = head2.next;
-            } else {
+            } else { // 相同值则打印后同步后移
                 System.out.print(head1.value + " ");
                 head1 = head1.next;
                 head2 = head2.next;

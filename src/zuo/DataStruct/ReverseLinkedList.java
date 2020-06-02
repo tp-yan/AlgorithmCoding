@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 import zuo.dft.Bean;
 import zuo.dft.Bean.*;
@@ -13,7 +13,7 @@ import static zuo.MyUtils.printLinkedList;
  * 【要求】
  * 如果链表长度为N，时间复杂度要求为O(N)，额外空间复杂度要求为O(1)
  */
-public class ReverseList {
+public class ReverseLinkedList {
     // 反转单向链表：依次改变每个节点的方向
     public static Node reverseList(Bean.Node head) {
         Node pre = null; // 指向 当前节点cur 的上一个节点

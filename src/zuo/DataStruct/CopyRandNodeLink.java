@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 import zuo.dft.Bean;
 import zuo.dft.Bean.*;
@@ -10,12 +10,12 @@ import java.util.HashMap;
  * 【题目】
  * 一种特殊的链表节点类描述如下：
  * public class Node {
- * public int value;
- * public Node next;
- * public Node rand;
- * public Node(int data) {
- * this.value = data;
- * }
+     public int value;
+     public Node next;
+     public Node rand;
+     public Node(int data) {
+        this.value = data;
+     }
  * }
  * Node类中的value是节点值，next指针和正常单链表中next指针的意义一
  * 样，都指向下一个节点，rand指针是Node类中新增的指针，这个指针可
@@ -36,7 +36,7 @@ import java.util.HashMap;
  * 然后类似基于HashMap的方法，复制指针指向，最后再分离新老链表
  */
 
-public class CopyListWithRandom {
+public class CopyRandNodeLink {
     // 方法一
     public static Bean.NodeWithRandom copyListWithRand1(NodeWithRandom head) {
         HashMap<NodeWithRandom, NodeWithRandom> hashMap = new HashMap<>();

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyHashMap {
+public class UseHashMap {
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<>();
         map.put("zuo", "31");

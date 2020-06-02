@@ -1,5 +1,6 @@
-package zuo;
+package zuo.DataStruct;
 
+import zuo.MyUtils;
 import zuo.dft.Bean;
 import zuo.dft.Bean.*;
 
@@ -38,7 +39,7 @@ import static zuo.MyUtils.printLinkedList;
  * 2. 再遍历一次链表，将链表中小于、等于、大于 pivot 的节点分别挂在三个新链表的后面（跳过链表头结点）
  * 3. 将小于，等于，大于 的3个链表依次相连，则得到 < == > 的三部分
  */
-public class SmallerEqualBiggerLink {
+public class LinkPartition {
     // 解法1：借助数组完成划分
     public static Bean.Node listPartition1(Node head, int pivot) {
         if (head == null) {
@@ -97,7 +98,7 @@ public class SmallerEqualBiggerLink {
         Node next;
 
         while (head != null) {
-            next = head.next; // 每次把头结点区出来
+            next = head.next; // 每次把头结点取出来
             head.next = null;
 
             if (head.value < pivot) {

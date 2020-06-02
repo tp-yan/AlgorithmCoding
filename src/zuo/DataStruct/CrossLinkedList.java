@@ -1,4 +1,4 @@
-package zuo;
+package zuo.DataStruct;
 
 import zuo.dft.Bean.*;
 
@@ -29,7 +29,7 @@ import zuo.dft.Bean.*;
  * 相交，此时返回loop1或loop2都对。若回到loop1时没遇到loop2，则说明它们是独立不相交的有环链表，即第(3)种情况
  * (3) "6 6"型，不相交
  */
-public class FindFirstIntersectNode {
+public class CrossLinkedList {
     /**
      * 判断2条单链表（也许有环）是否相交，若相交返回第一个相交节点
      *
@@ -206,6 +206,20 @@ public class FindFirstIntersectNode {
         head2.next = new Node(9);
         head2.next.next = new Node(8);
         head2.next.next.next = head1.next.next.next.next.next; // 8->6
+        System.out.println(getIntersectNode(head1, head2).value);
+
+        // 1->2->3->4->1->2
+        head1 = new Node(1);
+        head1.next = new Node(2);
+        head1.next.next = new Node(3);
+        head1.next.next.next = new Node(4);
+        head1.next.next.next.next = head1;
+
+        // 3->4->1->2->3->4...
+        head2 = head1.next.next;
+        System.out.println(getIntersectNode(head1, head2).value);
+
+        head2 = head1;
         System.out.println(getIntersectNode(head1, head2).value);
     }
 }

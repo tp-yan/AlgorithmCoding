@@ -1,5 +1,7 @@
-package zuo;
+package zuo.sort.relative;
 
+
+import zuo.MyUtils;
 
 import java.util.Arrays;
 
